@@ -44,13 +44,12 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(questions[_questionIndex]['question']),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
+            ...questions[_questionIndex]['answers'].map((answer) {
               return Answer(
                 answerText: answer,
                 selectHandler: _answerQuestion,
               );
-            }).toList(),
+            }),
           ],
         ),
       ),
