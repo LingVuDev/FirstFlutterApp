@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'answer.dart';
 import 'question.dart';
@@ -20,8 +22,8 @@ class Quiz extends StatelessWidget {
           Question(questions[questionIndex]['question']),
           ...questions[questionIndex]['answers'].map((answer) {
             return Answer(
-              answerText: answer,
-              selectHandler: answerQuestion,
+              answerText: answer['text'],
+              selectHandler: () => answerQuestion(answer['score']),
             );
           }),
         ],
